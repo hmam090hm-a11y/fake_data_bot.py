@@ -195,7 +195,10 @@ async def main():
     global telegram_app
     
     # بناء تطبيق تليجرام
-    telegram_app = ApplicationBuilder().token(BOT_TOKEN).build()
+    from telegram.ext import Application
+
+# استبدل السطر السابق بهذا:
+telegram_app = Application.builder().token(BOT_TOKEN).build()
     telegram_app.add_handler(CommandHandler("start", start))
     telegram_app.add_handler(CommandHandler("fake", fake_command))
     
